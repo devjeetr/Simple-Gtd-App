@@ -1,0 +1,30 @@
+angular.module('sharedUI')
+
+.directive('drEditableText', function(){
+    return{
+        restrict: 'E',
+        replace: true,
+        templateUrl: 'js/sharedUI/drEditableText/drEditableText.html',
+        scope:{
+            drText: '@',
+            editable: '@',
+            drOnEmpty: "&"
+        },
+        link: drEditableTextLink
+    };
+});
+
+function drEditableTextLink(scope, elem, attr){
+    console.log("inside link" + scope.drText);
+    scope.isEditable = scope.editable;
+    
+    elem.bind("keydown", function(event){
+        console.log("event triggered: " + event.which);
+        if(event.which == 13 || event.which == 27){
+        
+            scope.isEditable = false;
+            scope.$digest();
+        }
+    });
+   
+}

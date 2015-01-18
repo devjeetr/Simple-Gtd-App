@@ -1,0 +1,13 @@
+<div class="dr-editable-list">
+    <button class="button" role="button" ng-click="PrepareForAdd()">+</button>   
+    <ul ng-repeat="item in drList track by $index" class="no-bullet">
+        <li dr-editable-text dr-update="drUpdate()" contenteditable="true" ng-model="item[drDisplayVar]">{{item[drDisplayVar]}}</li>
+    </ul>
+    <div class="new-proj-inp" ng-show="isEditable">
+        <input class="newproj" dr-focusable focus="onFocus" type="text" ui-keypress="{'enter':'OnAdd()'}" ui-keydown="{'27':'OnCancel()'}" class="form-control" ng-model="drNewItemText">
+           
+        <form class="form-group">
+            <button class="button" ng-click="OnAdd()">Add</button><button class="button" ng-click="OnCancel()">Cancel</button>
+        </form>
+    </div>
+   </div>
