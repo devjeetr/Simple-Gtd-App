@@ -20,7 +20,7 @@ angular.module("app", ['sharedUI', 'mainDash', "shared"])
 
 
     vm.Update = function(){
-        prjs.projects = 
+        prjs.projects =
     };
 
 
